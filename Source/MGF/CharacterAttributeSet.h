@@ -23,4 +23,11 @@ public:
 	UCharacterAttributeSet();
 
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Attributes")
+		FGameplayAttributeData Health;
+		ATTRIBUTE_ACCESSORS(UCharacterAttributeSet, Health);
+
+	UFUNCTION()
+	virtual void OnRep_Health(const FGameplayAttributeData& oldHealth);
 };
